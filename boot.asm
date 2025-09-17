@@ -61,6 +61,12 @@ gdt_descriptor:
 
 [BITS 32]
 load32:
+   mov ax,data_seg
+   mov ds,ax
+   mov es,ax
+   mov fs,ax
+   mov gs,ax
+   mov ss,ax
    jmp $
 
     
