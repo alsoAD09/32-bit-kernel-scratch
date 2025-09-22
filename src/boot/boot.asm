@@ -67,9 +67,17 @@ load32:
    mov fs,ax
    mov gs,ax
    mov ss,ax
+   mov ebp,0x00200000
+   mov esp,ebp
+  
+   ;enabled A20LINE
+   in al,0x92
+   or al,2
+   out 0x92, al
+
    jmp $
 
     
 
-times 510-($ - $$) db 0
-dw 0xAA55
+; times 510-($ - $$) db 0
+; dw 0xAA55
