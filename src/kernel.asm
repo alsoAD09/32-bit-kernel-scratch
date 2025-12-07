@@ -1,4 +1,5 @@
 [BITS 32]
+section .asm
 global _start
 
 code_seg equ 0x08
@@ -19,3 +20,4 @@ _start:
    out 0x92, al
 
    jmp $
+ times 512-($ - $$) db 0
