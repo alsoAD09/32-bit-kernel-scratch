@@ -1,10 +1,13 @@
 [BITS 32]
-section .asm
+
+
 global _start
+global problem
 extern kernel_main
 
 code_seg equ 0x08
 data_seg equ 0x10
+
 _start:
    mov ax,data_seg
    mov ds,ax
@@ -21,6 +24,11 @@ _start:
    out 0x92, al
    
    call kernel_main
+   
    jmp $
+
+problem:
+  int 0;
+  
 
  times 512-($ - $$) db 0

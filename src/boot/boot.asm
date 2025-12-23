@@ -1,7 +1,7 @@
 ORG 0x7c00
 BITS 16
 
-code_seg equ gdt_code - gdt_start;
+code_seg equ gdt_code - gdt_start
 data_seg equ gdt_data - gdt_start
 _start:
     jmp short start
@@ -22,13 +22,13 @@ step2:
 
 
 .load_protected:
-  cli
-  lgdt [gdt_descriptor]
-  mov eax,cr0
-  or eax ,0x1
-  mov cr0,eax
-  jmp code_seg:load32
-  jmp $
+     cli
+     lgdt [gdt_descriptor]
+     mov eax,cr0
+     or eax ,0x1
+     mov cr0,eax
+     jmp code_seg:load32
+  
      
 
 ;gdt
@@ -36,6 +36,7 @@ gdt_start:
 gdt_null:
      dd 0x0
      dd 0x0
+     
 ;offset 0x8
 gdt_code: ;cs should point to this
      dw 0xffff ;segemnt limit first 0-15 bits
@@ -58,6 +59,7 @@ gdt_end:
 gdt_descriptor:
      dw gdt_end - gdt_start - 1
      dd gdt_start
+
 [BITS 32]
 load32:
      mov eax,1
@@ -104,7 +106,7 @@ ata_lba_read:
      jz .try_again
      
      mov ecx,256
-     mov dx,0x1F6
+     mov dx,0x1F0
      rep insw
      pop ecx
      loop .next_sector
