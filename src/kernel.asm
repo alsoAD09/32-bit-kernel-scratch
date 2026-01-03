@@ -2,7 +2,7 @@
 
 
 global _start
-global problem
+
 extern kernel_main
 
 code_seg equ 0x08
@@ -27,8 +27,7 @@ _start:
    
    jmp $
 
-problem:
-  int 32;
+
   
 
  times 512-($ - $$) db 0
