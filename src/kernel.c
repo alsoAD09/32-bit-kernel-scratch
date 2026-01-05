@@ -77,7 +77,7 @@ void kernel_main()
     print("Hello world!\ntest");
     //initialize interrupt descriptor table
     idt_init();
-    outb(0x60,0xff);
+    
 
     
 }
