@@ -71,5 +71,5 @@ Follow these steps precisely to ensure a clean build and successful boot in Prot
     qemu-system-x86_64 -hda ./os.bin
     ```
 
----
+
 
