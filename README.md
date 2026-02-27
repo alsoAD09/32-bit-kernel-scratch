@@ -19,11 +19,11 @@ To build and run peruOS correctly, you must use a cross-compiler to target `i686
 ## 📂 Project Documentation
 The technical implementation details for each subsystem are organized within the `/docs` folder. Each link below leads to a dedicated folder containing the logical understanding for that functionality.
 
-* 🏗️ **[/docs/bootloader](./docs/bootloader/)** - Boot process and Stage 1/2 Assembly.
-* 🧠 **[/docs/memory](./docs/memory/)** - Virtualization and Memory Management.
-* 💾 **[/docs/filesystem](./docs/filesystem/)** - FAT16 and Virtual File System (VFS) design.
-* ⌨️ **[/docs/drivers](./docs/drivers/)** - Keyboard and hardware I/O.
-* 🧵 **[/docs/processes](./docs/processes/)** - Task switching and ELF loading.
+* 🏗️ **[/docs/bootloader](./doc/bootloader/)** - Boot process and Stage 1/2 Assembly.
+* 🧠 **[/docs/memory](./doc/memory/)** - Virtualization and Memory Management.
+* 💾 **[/docs/filesystem](./doc/filesystem/)** - FAT16 and Virtual File System (VFS) design.
+* ⌨️ **[/docs/drivers](./doc/drivers/)** - Keyboard and hardware I/O.
+* 🧵 **[/docs/processes](./doc/processes/)** - Task switching and ELF loading.
 
 ---
 
