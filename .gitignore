@@ -1,0 +1,11 @@
+# Ignore compiled binaries
+bin/
+*.bin
+*.iso
+
+# Ignore object files
+build/
+*.o
+
+# Ignore editor-specific settings
+.vscode/
