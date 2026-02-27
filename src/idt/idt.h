@@ -18,4 +18,8 @@ struct idtr_desc
     uint16_t limit;
     uint32_t base;
 }__attribute__((packed));
+
+void idt_init();
+void enable_Interrupts();
+void disable_Interrupts();
 #endif

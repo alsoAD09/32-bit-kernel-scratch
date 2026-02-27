@@ -28,13 +28,11 @@ _start:
    out 0x20,al;tell master pic 
    mov al,0x20;interrupt 0x20 is where master ISR should start
    out 0x21,al
-   mov al,000000001b
+   mov al,00000001b
    out 0x21,al
    ;end remap of the mater pic
 
-   ;enable interrupts
-   sti
-   
+  
    
    call kernel_main
    
@@ -43,4 +41,4 @@ _start:
 
   
 
- times 512-($ - $$) db 0
+times 512-($ - $$) db 0
