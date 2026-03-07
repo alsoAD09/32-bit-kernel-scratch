@@ -3,6 +3,7 @@ global insb
 global insw
 global outb
 global outw
+
 insb:
     push ebp
     mov ebp,esp

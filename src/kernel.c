@@ -4,7 +4,10 @@
 #include "idt/idt.h"
 #include "io/io.h"
 #include "memory/heap/kheap.h"
+#include "disk/disk.h"
 #include "memory/paging/paging.h"
+#include "string/string.h"
+#include "fs/pparser.h"
 
 uint16_t* video_mem = 0;
 uint16_t terminal_row = 0;
@@ -52,16 +55,7 @@ void terminal_initialize()
 }
 
 
-size_t strlen(const char* str)
-{
-    size_t len = 0;
-    while(str[len])
-    {
-        len++;
-    }
 
-    return len;
-}
 
 void print(const char* str)
 {
@@ -79,6 +73,9 @@ void kernel_main()
     print("Hello world!\ntest");
     //initialize the heap
     kheap_init();
+
+    //search and initialize disk
+    disk_search_and_init();
     //initialize interrupt descriptor table
     idt_init();
     
@@ -88,17 +85,20 @@ void kernel_main()
     //switch to kernel paging chunk
     paging_switch(paging_4gb_chunk_get_directory(kernel_chunk));
 
-    char* ptr=kzalloc(4096);
-    paging_set(paging_4gb_chunk_get_directory(kernel_chunk), (void*)0x1000, (uint32_t)ptr | PAGING_ACCESS_FROM_ALL | PAGING_IS_PRESENT | PAGING_IS_WRITABLE);
+    // char* ptr=kzalloc(4096);
+    // paging_set(paging_4gb_chunk_get_directory(kernel_chunk), (void*)0x1000, (uint32_t)ptr | PAGING_ACCESS_FROM_ALL | PAGING_IS_PRESENT | PAGING_IS_WRITABLE);
 
     //enable paging
     enable_paging();
-    char* ptr2=(char*)0x1000;
-    ptr2[0]='A';
-    ptr2[1]='B';
-    print(ptr2);
-    print(ptr);
+    // char* ptr2=(char*)0x1000;
+    // ptr2[0]='A';
+    // ptr2[1]='B';
+    // print(ptr2);
+    // print(ptr);
     //Initialize system interrupts
+
+    // char buf[512];
+    // disk_read_sector(0,1,buf);
     enable_Interrupts();
 
     // void* ptr =kmalloc(50);
@@ -110,6 +110,11 @@ void kernel_main()
     // {
 
     // }
+    struct path_root* root_path=pathparser_parse("0:/bin/shell.exe",NULL);
+    if(root_path)
+    {
+
+    }
 
     
   
