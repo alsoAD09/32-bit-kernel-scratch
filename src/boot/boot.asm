@@ -76,11 +76,11 @@ ata_lba_read:
      out dx,al
 
      mov eax,ecx
-     mov dx,0xF12
+     mov dx,0x1F2
      out dx,al
      
      mov eax,ebx
-     mov dx,0xF13
+     mov dx,0x1F3
      out dx,al
      
      mov dx,0x1F4
